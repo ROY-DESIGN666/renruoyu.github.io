@@ -23,7 +23,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-bottom: 22vh;
     overflow: hidden;
   }
   .hero-poster {
@@ -53,7 +54,7 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.55) 100%);
     z-index: 1;
   }
   .hero-content {
@@ -173,6 +174,74 @@
     border-radius: 4px;
   }
 
+  /* ── Resume Timeline ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(255,255,255,0.1);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot {
+    position: absolute;
+    left: -2rem;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translateX(-4.5px);
+  }
+  .timeline-year {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+  }
+  .resume-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .resume-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .resume-tag {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 0.3em 1em;
+    border-radius: 20px;
+  }
+
+  /* ── Comments ── */
+  .comments-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem 5rem;
+  }
+
   /* ── Footer ── */
   .footer {
     text-align: center;
@@ -184,9 +253,11 @@
 
   /* ── Responsive ── */
   @media (max-width: 600px) {
-    .hero { height: 80vh; }
+    .hero { height: 80vh; padding-bottom: 16vh; }
     .section { padding: 3rem 1rem; }
     .cards { grid-template-columns: 1fr; }
+    .timeline { padding-left: 1.5rem; }
+    .timeline-dot { left: -1.5rem; transform: translateX(-4.5px); }
   }
 </style>
 </head>
@@ -253,6 +324,38 @@
   </div>
 </section>
 
+<!-- ======== 个人简历 ======== -->
+<section class="section" id="resume">
+  <div class="section-header">
+    <div class="section-label">Resume</div>
+    <h2 class="section-title">个人简历</h2>
+  </div>
+  <p class="resume-intro">全景设计师 / 前端开发，专注沉浸式视觉体验与交互设计。擅长全景合成、WebGL 渲染、三维场景搭建。</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">2024 — 至今</div>
+      <div class="timeline-title">全景设计师</div>
+      <div class="timeline-sub">独立开发全景合成与查看器工具链，服务企业级全景展示需求。</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-year">2021 — 2024</div>
+      <div class="timeline-title">视觉设计 / 前端开发</div>
+      <div class="timeline-sub">负责品牌视觉设计、官网搭建与交互体验优化。</div>
+    </div>
+  </div>
+  <div class="resume-tags">
+    <span class="resume-tag">Panorama</span>
+    <span class="resume-tag">WebGL</span>
+    <span class="resume-tag">Three.js</span>
+    <span class="resume-tag">Blender</span>
+    <span class="resume-tag">PhotoShop</span>
+    <span class="resume-tag">Figma</span>
+    <span class="resume-tag">HTML / CSS / JS</span>
+  </div>
+</section>
+
 <!-- ======== 博客栏 ======== -->
 <section class="section" id="blog">
   <div class="section-header">
@@ -266,6 +369,24 @@
       <p>在此发布你的设计心得、全景技术分享、工具开发日志。</p>
       <span class="placeholder-tag">占位 · 待填充</span>
     </div>
+  </div>
+</section>
+
+<!-- ======== 留言栏 ======== -->
+<section class="section" id="comments">
+  <div class="section-header">
+    <div class="section-label">Messages</div>
+    <h2 class="section-title">留言栏</h2>
+  </div>
+  <div class="comments-container">
+    <script src="https://utteranc.es/client.js"
+            repo="ROY-DESIGN666/renruoyu.github.io"
+            issue-term="pathname"
+            label="💬 留言"
+            theme="github-dark"
+            crossorigin="anonymous"
+            async>
+    </script>
   </div>
 </section>
 
